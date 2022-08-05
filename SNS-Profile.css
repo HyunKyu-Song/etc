@@ -1,0 +1,21 @@
+span{
+  font-size: x-large;
+  font-weight: 600;
+}
+
+i{
+  font-size: 100px;
+  color: #0369bc;
+}
+
+.container{
+  width: 100%;
+  height: auto;
+  background-color: #f7f9fc;
+  /* padding-top: 15px; */
+}
+
+.profile-img{
+  padding-left: 20%;
+  padding-top: 20%;
+}

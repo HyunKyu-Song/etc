@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./fontawesome/css/all.css">
+  <title>Responsive_WEB</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    .container{
+      display: flex;
+      background-color: #c2d3de;
+      padding: 10px;
+      margin: auto;
+      width: 80vw;
+      text-align: center;
+    }
+    
+    .container > div{
+      flex-grow: 1;
+    }
+    .content i{
+      background-color: coral;
+      padding-top: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-sizing: border-box;
+    }
+    @media screen and (max-width: 992px){
+      .container{
+        font-size: 18px;
+        flex-wrap: wrap;
+        width: 40vw;
+      }
+    }
+    @media screen and (max-width: 768px){
+      .container{
+        font-size: 20px;
+        width: 80vw;
+        
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="container">
+    <div class="content">
+      <i class="fas fa-shopping-cart"></i>
+      <h3>Fast Shopping</h3>
+      <p>lorem ipsum</p>
+    </div>
+    <div class="content">
+      <i class="fa-solid fa-hand-holding-heart"></i>
+      <h3>Good Service</h3>
+      <p>lorem ipsum</p>
+    </div>
+    <div class="content">
+      <i class="fas fa-barcode"></i>
+      <h3>Free Coupons</h3>
+      <p>lorem ipsum</p>
+    </div>
+    <div class="content">
+      <i class="fa-solid fa-gifts"></i>
+      <h3>New Products</h3>
+      <p>lorem ipsum</p>
+    </div>
+  </nav>
+</body>
+</html>
