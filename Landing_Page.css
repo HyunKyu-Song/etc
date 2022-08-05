@@ -151,19 +151,19 @@ body {
 }
 
 .port-img1 {
-  background-image: url('../img/portfolio-1.jpg');
+  background-image: url('.//portfolio-1.jpg');
 }
 
 .port-img2 {
-  background-image: url('../img/portfolio-2.jpg');
+  background-image: url('./portfolio-2.jpg');
 }
 
 .port-img3 {
-  background-image: url('../img/portfolio-3.jpg');
+  background-image: url('./portfolio-3.jpg');
 }
 
 .port-img4 {
-  background-image: url('../img/portfolio-4.jpg');
+  background-image: url('./portfolio-4.jpg');
 }
 
 .port-text {
