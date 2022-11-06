@@ -2,7 +2,7 @@
 
 int main(void){
 	
-	int i=20;
+	int i=25;
 	
 	if(i == 20)
 		printf("성인입니다.\n");
