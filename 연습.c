@@ -2,11 +2,14 @@
 
 int main(void){
 	
-	int i=20;
+	int i, j;
 	
-	if(i == 20)
-		printf("성인입니다.\n");
-		printf("술집 입장 가능."); 
+	for(i = 0; i < 5; i++){
+		for(j = 0; j < 5; j++){
+			printf("*");
+		}
+		printf("\n");
+	}
 	
 	return 0;
 }
