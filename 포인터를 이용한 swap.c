@@ -1,29 +1,25 @@
 #include <stdio.h>
 
-void swap(int *px, int *py) //a, b의 주소를 매개변수로 받아 포인터 변수를 사용 
+void swap(int *a, int *b)
 {
 	int temp;
 	
-	temp = *px;
-	*px = *py;
-	*py = temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
-int main(){
+int main(void){
 	
-	int a=10, b=20;
-
-	printf("변경 전\n");
-	printf("a = %d\n", a);
-	printf("b = %d\n\n\n", b);
+	int x=10, y=20;
 	
-	swap(&a, &b); //swap함수 인자에 a, b 주소를 넣음 
+	printf("[swap 전]\n");
+	printf("x = %d	y = %d", x, y);
 	
-	//주소를 보냈기 때문에 함수 밖에서도 변경됨 
-	//call by reference
-	printf("변경 후\n");
-	printf("a = %d\n", a);
-	printf("b = %d\n", b);
+	swap(&x, &y);
+	
+	printf("\n\n[swap 후]\n");
+	printf("x = %d	y = %d", x, y);
 	
 	return 0;
 }
