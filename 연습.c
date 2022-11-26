@@ -1,70 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-typedef struct node{
+typedef struct std{
 	int num;
-	struct node * next;
-}NODE;
-
-void Init(NODE *node, NODE *link)
-{	
-	node = (NODE*)malloc(sizeof(node));
-	
-	node = NULL;
-	link = node;
-}
-
-void Insert(NODE *node, NODE *link, int data)
-{
-	NODE * newnode;
-	
-	newnode = (NODE*)malloc(sizeof(newnode));
-	newnode->num = data;
-	newnode->next = NULL;
-	
-	if(node == NULL){
-		node->next = newnode;
-		link = newnode;
-	}
-	else{
-		link->next = newnode;
-		link = newnode;
-	}
-}
-
-void Print(NODE *node)
-{
-	int i;
-	//NODE *copy;
-	
-	//copy = node;
-	
-//	for(i = 0; i < 3; i++){
-//		printf("%d ", copy->num);
-//		copy = copy->next;
-//	}
-//	node = node->next;
-//	
-//	for(i = 0; i < 3; i++){
-//		printf("%d ", node->num);
-//		node = node->next;
-//	}
-	node = node->next;
-	printf("%d ", node->num);
-}
+	char name[10];
+	float grade;
+}STD;
 
 int main(void){
 	
-	NODE * node;
-	NODE * link;
+	STD s;
+	char str[10];
 	
-	Init(node, link);	
+	printf("학번: ");
+	scanf("%d", &s.num);
+	/*
+	printf("이름: ");
+	scanf("%s", &s.name);
+	*/
+	strcpy(s.name, "song");
+	//s.name = "song";
 	
-	Insert(node, link, 10);
-	Insert(node, link, 20);
-	Insert(node, link, 30);
 	
-	Print(node);
+	printf("학점: ");
+	scanf("%f", &s.grade);
+	
+	printf("\n\n학번: %d\n이름: %s\n학점: %.1f", s.num, s.name, s.grade);
 	
 	return 0;
 }
