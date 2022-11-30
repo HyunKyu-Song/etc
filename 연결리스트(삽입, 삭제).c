@@ -6,7 +6,7 @@ typedef struct linkedlist{
 	struct linkedlist * next;
 }LinkedList;
 
-void init(LinkedList *head, LinkedList *tail)
+void init(LinkedList *head)
 {
 	head->next = NULL;
 }
@@ -16,6 +16,10 @@ void Insert(LinkedList *head, LinkedList *tail, int value)
 	LinkedList *newnode;
 	
 	newnode = (LinkedList*)malloc(sizeof(newnode));
+	/*
+	newnode = (LinkedList*)malloc(sizeof(newnode)*2); 
+	//원래 크기보다 커진 메모리 공간을 Delete하기 위해 *2 했음
+	*/
 	newnode->data = value;
 	newnode->next = NULL;
 	
@@ -72,7 +76,7 @@ int main(void){
 	LinkedList head, tail;
 	int n, data;
 	
-	init(&head, &tail);
+	init(&head);
 	
 	while(1){
 		printf("\n\n[1] Insert\n[2] Delete\n[3] Print\n[4] Exit\n\n");

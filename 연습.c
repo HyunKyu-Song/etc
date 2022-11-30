@@ -1,3 +1,137 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define max 10
+
+typedef int element;
+typedef struct list {
+   struct list *link;
+   int data  ;
+}List;
+
+void init(List* head) {
+   head->link = NULL;
+}
+
+
+void insert(List* head, List* tail, element data) {
+   List* newnode = (List*)(malloc(sizeof(newnode)));
+   newnode->data = data;
+   newnode->link = NULL;
+
+   if (head->link == NULL) {
+      head->link = newnode;
+      tail->link = newnode;
+   }
+   else {
+      tail->link->link = newnode;
+      tail->link = newnode;
+   }
+}
+
+
+   /*else {
+      if (head->data > newnode->data) {
+         newnode->link = head;
+         newnode->link = tail;
+         head = newnode;
+      }
+      for (tail = head; tail->link; tail = tail->link) {
+         if (tail->data< newnode->data && tail->link->data > newnode->data) {
+            newnode->link = tail->link;
+            tail->link = newnode;
+         }
+      }
+      tail->link = newnode;
+   }*/
+
+/*
+void delect(List* head, List* tail, element data) {
+   List* newnode;
+   List* cur;
+   List* pre;
+
+   if (head->link == NULL) {
+      printf("error");
+   }
+
+   else if(tail->data == data) {
+      tail = cur->link;
+      tail->link = NULL;
+      free(cur);
+   }
+
+   for(; cur; cur=cur->link){
+      if (cur->data == data) {
+         pre->link = cur->link;
+         cur->link = NULL;
+         free(cur);
+      }
+      pre = cur;
+   }
+}
+*/
+
+/*
+void print(List* head, element data) {
+   List* ptr;
+   for (ptr = head; ptr; ptr = ptr->link) {
+      if (ptr->data == data);
+   }
+
+   for (ptr = head; ptr->link; ptr = ptr->link) {
+      printf("%d->", ptr->data);
+   }
+   printf("NULL");
+}
+*/
+void print(List *head)
+{
+	List *copy;
+	
+	copy = (List*)malloc(sizeof(copy));
+	
+	copy->link = head->link;
+	
+	printf("\n\n[ 출력결과 ]\n");
+	while(copy->link != NULL){
+		printf("%d ", copy->link->data);
+		copy->link = copy->link->link;
+	}
+	printf("\n\n\n");
+}
+
+int main() {
+   List head;
+   element data = 0;
+   List tail;
+   int n;
+   
+   init(&head);
+
+   while (1){
+   		printf("\n1.넣 2.빼 3.출력\n");
+		scanf_s("%d", &n);
+
+      if (n == 1) {
+         scanf_s("%d", &data);
+         insert(&head, &tail, data);
+      }
+
+      else if(n == 2) {
+         scanf_s("%d", &data);
+         //delete(&head, &tail, data);
+      }
+
+      else if(n == 3) {
+         print(&head);
+      }
+
+   }
+
+   return 0; 
+}
+
+
 /*
 1
 #include <stdio.h>
