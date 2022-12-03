@@ -6,102 +6,102 @@ typedef struct linkedlist{
 	struct linkedlist * next;
 }LinkedList;
 
-void init(LinkedList *head)
+void Init(LinkedList *head)
 {
 	head->next = NULL;
 }
 
-void Insert(LinkedList *head, LinkedList *tail, int value)
+void Insert(LinkedList *head, LinkedList *tail, int val)
 {
-	LinkedList *newnode;
-	
-	newnode = (LinkedList*)malloc(sizeof(newnode));
+	LinkedList *newnode = (LinkedList*)malloc(sizeof(newnode));
 	/*
 	newnode = (LinkedList*)malloc(sizeof(newnode)*2); 
 	//원래 크기보다 커진 메모리 공간을 Delete하기 위해 *2 했음
 	*/
-	newnode->data = value;
+	
+	newnode->data = val;
 	newnode->next = NULL;
 	
-	if(head->next == NULL){
+	if(head->next == NULL)
 		head->next = newnode;
-		tail->next = newnode;
-	}
-	else{
+	else
 		tail->next->next = newnode;
-		tail->next = newnode;
-	}
-}
+		
+	tail->next = newnode;
+} 
 
-void Delete(LinkedList *head, LinkedList *tail, int value)
+void Delete(LinkedList *head, LinkedList *tail, int target)
 {
-	LinkedList *p, *rem;
+	LinkedList *rem, *prev;
 	
 	rem = head->next;
-	p = NULL;
+	prev = NULL;
 	
-	while(rem->data != value){
-		p = rem;
+	while(rem->data != target){
+		prev = rem;
 		rem = rem->next;
 	}
 	
-	if(p == NULL){
+	if(prev == NULL)
 		head->next = head->next->next;
-	}
 	else{
-		p->next = rem->next;
-		tail->next = p;
-	}
+		prev->next = rem->next;
+		
+		if(rem->next == NULL)
+			tail->next = prev;
+	} 
 	
 	free(rem);
-}
+} 
 
 void Print(LinkedList *head)
 {
-	LinkedList *copy;
-	
-	copy = (LinkedList*)malloc(sizeof(copy));
+	LinkedList *copy = (LinkedList*)malloc(sizeof(copy));
 	
 	copy->next = head->next;
 	
-	printf("\n저장된 데이터: \n");
+	printf("\n[ 출력결과 ]\n"); 
 	while(copy->next != NULL){
 		printf("%d ", copy->next->data);
 		copy->next = copy->next->next;
 	}
+	printf("\n\n");
 }
 
 int main(void){
 	
 	LinkedList head, tail;
-	int n, data;
+	int n, x;
 	
-	init(&head);
+	Init(&head);
 	
 	while(1){
-		printf("\n\n[1] Insert\n[2] Delete\n[3] Print\n[4] Exit\n\n");
+		printf("\n[1] Insert [2] Delete [3] Print [4] Exit\n\n");
+		printf("입력: ");
 		scanf("%d", &n);
 		
 		switch(n){
 			case 1:
-				printf("저장할 데이터: ");
-				scanf("%d", &data);
-				Insert(&head, &tail, data);
+				printf("\n데이터 입력: ");
+				scanf("%d", &x);
+				Insert(&head, &tail, x);
+				Print(&head);
 				break;
 			case 2:
-				printf("삭제 할 데이터: ");
-				scanf("%d", &data);
-				Delete(&head, &tail, data);
+				printf("\n삭제할 데이터 입력: ");
+				scanf("%d", &x);
+				Delete(&head, &tail, x);
+				Print(&head);
 				break;
 			case 3:
 				Print(&head);
 				break;
 			case 4:
-				printf("\n-----------------------------\n\n");
+				printf("---------------------------\n\n");
 				printf(" 프로그램이 종료되었습니다.\n\n");
-				printf("-----------------------------");
+				printf("---------------------------\n");
 				exit(-1);
-		}
+		}	
 	}
 	
 	return 0;
